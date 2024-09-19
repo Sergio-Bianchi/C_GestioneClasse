@@ -1,0 +1,3 @@
+/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/C_GestioneClasse.dir
+/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/rebuild_cache.dir
