@@ -1,4 +1,4 @@
-# Install script for directory: /home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse
+# Install script for directory: /mnt/HDD/Documents/INFORMATICA/C_GestioneClasse
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

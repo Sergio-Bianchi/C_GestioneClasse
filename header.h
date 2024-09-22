@@ -17,6 +17,10 @@ typedef struct {
 int readData(FILE * fp, student * students);
 int countLines(FILE * fp);
 int strToInt(char * string);
+int mainLoop();
+
+void printHelp();
 
 
+void clrscr();
 #endif //C_GESTIONECLASSE_HEADER_H

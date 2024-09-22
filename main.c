@@ -12,7 +12,6 @@ int studentsAmount = 0;
 int main(int argc, char *argv[]) {
     FILE *fp;
     student *students = NULL;
-
     // Exit if no file is provided
     if (argc < 2) {
         printf("Provide the file you want to edit or create\n");
@@ -40,13 +39,50 @@ int main(int argc, char *argv[]) {
     }
 
     /* Da qui in avanti, possiamo passare al management del tutto */
-    for (int k = 0; k <= studentsAmount; ++k) {
+/*    for (int k = 0; k <= studentsAmount; ++k) {
         if (isalpha(students[k].name[0])) {
             printf("%s\n", students[k].name);
         }
-    }
+    }*/
+    mainLoop();
 }
 
+void printHelp() {
+    printf("\nHelp: \n\n"
+           "    p       Print current class\n"
+           "    w       Save class to file\n"
+           "    m       Print this menu\n"
+           "    cl     Clear the screen\n"
+           "    e [id]  Edit student\n"
+           "    a [id]  Add a student\n"
+           "    d [id]  Delete a student\n"
+           "    q       Exit\n");
+}
+
+int mainLoop() {
+    printf("C_GestioneClasse (m for help): ");
+    char command[20];
+    fgets(command, 20, stdin);
+    if (!strcmp(command, "m\n")) printHelp();
+    else if (!strcmp(command, "q\n")) return 0;
+    else if (!strcmp(command, "cl\n")) clrscr();
+    else if (!strcmp(command, "p\n")) printf("Command PRINT in progress\n");
+    else if (!strcmp(command, "e\n")) printf("Command EDIT called. These is a lot to do here\n");
+    else if (!strcmp(command, "w\n")) printf("Command WRITE called. These is a lot to do here\n");
+    else if (!strcmp(command, "a\n")) printf("Command ADD called. These is a lot to do here\n");
+    else if (!strcmp(command, "d\n")) printf("Command DELETE called. These is a lot to do here\n");
+    else {
+        printf("Not a valid command\n");
+    }
+
+    mainLoop();
+
+    return 0;
+}
+
+void clrscr() {
+    system("@cls||clear\n");
+}
 
 // Count up lines in a file
 int countLines(FILE *fp) {
@@ -79,18 +115,15 @@ int readData(FILE *fp, student *students) {
         for (int j = 0; j <= 2; j++) {
             if (j == 0) {
                 strcpy(students[i].name, token);
-                printf("%s\n", students[i].name);
             }
             if (j == 1) {
                 strcpy(students[i].surname, token);
-                printf("%s\n", students[i].surname);
             }
             if (j == 2) {
                 // Strtol converte il testo in numero per facilitarne la modifica
                 // TODO Opzionale, non serve per forza convertire il testo. Deciderò più tardi
                 int height = strtol(token, NULL, 10);
                 students[i].height = height;
-                printf("%d\n", students[i].height);
             }
             // Avanza con strtok alla prossima colonna
             token = strtok(NULL, ";");

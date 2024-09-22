@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug"
+			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "27"
+			"value" : "29"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "8"
+			"value" : "6"
 		},
 		{
 			"name" : "CMAKE_COLOR_DIAGNOSTICS",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse"
+			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -759,7 +759,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/jag/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27"
+			"value" : "/home/jag/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1023,7 +1023,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug"
+			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug"
 		},
 		{
 			"name" : "C_GestioneClasse_IS_TOP_LEVEL",
@@ -1047,7 +1047,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse"
+			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

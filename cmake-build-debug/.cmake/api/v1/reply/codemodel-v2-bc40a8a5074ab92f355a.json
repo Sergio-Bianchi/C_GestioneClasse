@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "C_GestioneClasse::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-C_GestioneClasse-Debug-52eaf3e3618ad02a2c06.json",
+					"jsonFile" : "target-C_GestioneClasse-Debug-bd4c2a2f0513dc79a935.json",
 					"name" : "C_GestioneClasse",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse/cmake-build-debug",
-		"source" : "/home/jag/Documents/HDD/INFORMATICA/C_GestioneClasse"
+		"build" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug",
+		"source" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }
