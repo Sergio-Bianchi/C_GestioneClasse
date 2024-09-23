@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/C_GestioneClasse.dir/main.c.o -o C_GestioneClasse

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug"
+			"value" : "/home/jag/CLionProjects/C_GestioneClasse/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/jag/CLionProjects/C_GestioneClasse/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -427,7 +427,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Ninja"
+			"value" : "Unix Makefiles"
 		},
 		{
 			"name" : "CMAKE_GENERATOR_INSTANCE",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse"
+			"value" : "/home/jag/CLionProjects/C_GestioneClasse"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -522,12 +522,16 @@
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Path to a program."
 				}
 			],
-			"type" : "UNINITIALIZED",
-			"value" : "/home/jag/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja"
+			"type" : "FILEPATH",
+			"value" : "/usr/bin/make"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1023,7 +1027,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug"
+			"value" : "/home/jag/CLionProjects/C_GestioneClasse/cmake-build-debug"
 		},
 		{
 			"name" : "C_GestioneClasse_IS_TOP_LEVEL",
@@ -1047,7 +1051,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse"
+			"value" : "/home/jag/CLionProjects/C_GestioneClasse"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

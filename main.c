@@ -41,24 +41,24 @@ int main(int argc, char *argv[]) {
     }
 
     /* Da qui in avanti, possiamo passare al management del tutto */
-/*    for (int k = 0; k <= studentsAmount; ++k) {
-        if (isalpha(students[k].name[0])) {
-            printf("%s\n", students[k].name);
-        }
-    }*/
-    mainLoop();
+    /*    for (int k = 0; k <= studentsAmount; ++k) {
+            if (isalpha(students[k].name[0])) {
+                printf("%s\n", students[k].name);
+            }
+        }*/
+    mainLoop(argv[1]);
 }
 
 void printHelp() {
     printf("\nHelp: \n\n"
-           "    p       Print current class\n"
-           "    w       Save class to file\n"
-           "    m       Print this menu\n"
-           "    cl      Clear the screen\n"
-           "    e [id]  Edit student\n"
-           "    a       Add a student\n"
-           "    d [id]  Delete a student\n"
-           "    q       Exit\n");
+        "    p       Print current class\n"
+        "    w       Save class to file\n"
+        "    m       Print this menu\n"
+        "    cl      Clear the screen\n"
+        "    e [id]  Edit student\n"
+        "    a       Add a student\n"
+        "    d [id]  Delete a student\n"
+        "    q       Exit\n");
 }
 
 /* Stampa la tabella caricata in RAM*/
@@ -67,8 +67,10 @@ void printStudents() {
     printf("%-3s %20s %20s %8s\n\n", "ID", "NAME", "SURNAME", "HEIGHT");
     /* Stampa tutte le colonne*/
     for (int i = 0; i < studentsAmount; i++) {
-        printf("%02d) %20s %20s %8d", i, students[i].name, students[i].surname, students[i].height);
-        bckls();
+        if (students[i].name[0] != '*') {
+            printf("%02d) %20s %20s %8d", i, students[i].name, students[i].surname, students[i].height);
+            bckls();
+        }
     }
 }
 
@@ -190,16 +192,14 @@ void addHeight() {
 }
 
 void addStudent() {
-
     /* Allarga la memoria di students per poter contenere altri studenti. Si potrebbe inserire in un'altra funzione */
 
     /* Se il numero di studenti è superiore al numero massimo permesso dalla memoria assegnata*/
 
     if (studentsAmount > maxStudentsMemory) {
         /* Creo una variabile che conterrà in nuovo array*/
-        student *muppet;
         /* Alloco alla variabile nuova lo spazio necessario per contenere il nuovo studente + il buffer predefinito (Se il buffer dovesse essere 0, funziona ugualmente)*/
-        muppet = malloc((studentsAmount + OVERBUFFER + 1) * sizeof(student));
+        student *muppet = malloc((studentsAmount + OVERBUFFER + 1) * sizeof(student));
 
         /* Copio i dati nel nuovo puntatore */
         for (int i = 0; i < studentsAmount; ++i) {
@@ -221,25 +221,120 @@ void addStudent() {
 }
 
 
+void editStudent() {
+    // TODO, sistemare, commentare, rendere a prova di scemo. Per ora, funziona abbastanza
+
+    char input[4];
+    int id = 0;
+    printf("Choose a student to edit (Note, IDs could change in new execution. Check them with command print)\n");
+    while (1) {
+        printf("ID: ");
+        fflush(stdin);
+        fgets(input, 4, stdin);
+        id = strtol(input, NULL, 10);
+        if (id < studentsAmount) {
+            printf("%02d) %20s %20s %8d\n", id, students[id].name, students[id].surname, students[id].height);
+            printf("Is it right [Y/n]? ");
+            fflush(stdin);
+            fgets(input, 4, stdin);
+            if (input[0] == 'n' || input[0] == 'N') {
+                editStudent();
+                return;
+            }
+            if (input[0] == 'y' || input[0] == 'Y' || input[0] == '\n') break;
+        } else {
+            printf("Please enter a valid student ID\n");
+            editStudent();
+            return;
+        }
+    }
+    printf("Insert new height: ");
+    fflush(stdin);
+    fgets(input, 4, stdin);
+    const int height = strtol(input, NULL, 10);
+#ifdef  EGG
+    /* Piccolo easter egg se l'altezza inserita è molto bassa o molto alta*/
+    if (height < 100) {
+        printf("Are they gnomes? %d cm are not a lot", height);
+        addHeight();
+        return;
+    } else if (height > 300) {
+        printf("Are they giants? %d cm are a lot", height);
+        addHeight();
+        return;
+    }
+#endif
+
+    students[id].height = height;
+    printf("%s %s's new height is %d cm\n", students[id].name, students[id].surname, students[id].height);
+    fflush(stdin);
+}
+
+
+void deleteStudent() {
+    // TODO, sistemare, commentare, rendere a prova di scemo. Per ora, funziona abbastanza
+
+    char input[4];
+    int id = 0;
+    printf("Choose a student to delete (Note, IDs could change in new execution. Check them with command print)\n");
+    while (1) {
+        printf("ID: ");
+        fflush(stdin);
+        fgets(input, 4, stdin);
+        id = strtol(input, NULL, 10);
+        if (id < studentsAmount) {
+            printf("%02d) %20s %20s %8d\n", id, students[id].name, students[id].surname, students[id].height);
+            printf("Is it right [Y/n]? ");
+            fflush(stdin);
+            fgets(input, 4, stdin);
+            if (input[0] == 'n' || input[0] == 'N') {
+                editStudent();
+                return;
+            }
+            if (input[0] == 'y' || input[0] == 'Y' || input[0] == '\n') break;
+        } else {
+            printf("Please enter a valid student ID\n");
+            editStudent();
+            return;
+        }
+    }
+    students[id].name[0] = '*';
+    printf("Student deleted\n");
+
+    fflush(stdin);
+}
+
+void saveToFile(const char *file) {
+    /* Apri il file specificato all'inzio in write*/
+    FILE *fp = fopen(file, "w");
+    /* Scrivi tutto il contenuto dell'array students*/
+    for (int i = 0; i < studentsAmount; ++i) {
+        if (students[i].name[0] != '*') {
+            fprintf(fp, "%s;%s;%d;\n", students[i].name, students[i].surname, students[i].height);
+        }
+    }
+}
+
 /* Ciclo principale dell'applicazione */
 
-int mainLoop() {
+int mainLoop(char *file) {
     printf("C_GestioneClasse (m for help): ");
     char command[20];
+    fflush(stdin);
     fgets(command, 20, stdin);
     if (!strcmp(command, "m\n")) printHelp();
     else if (!strcmp(command, "q\n")) return 0;
     else if (!strcmp(command, "cl\n")) clrscr();
     else if (!strcmp(command, "p\n")) printStudents();
-    else if (!strcmp(command, "e\n")) printf("Command EDIT called. These is a lot to do here\n");
-    else if (!strcmp(command, "w\n")) printf("Command WRITE called. These is a lot to do here\n");
+    else if (!strcmp(command, "e\n")) editStudent();
+    else if (!strcmp(command, "w\n")) saveToFile(file);
     else if (!strcmp(command, "a\n")) addStudent();
-    else if (!strcmp(command, "d\n")) printf("Command DELETE called. These is a lot to do here\n");
+    else if (!strcmp(command, "d\n")) deleteStudent();
     else {
         printf("Not a valid command\n");
     }
 
-    mainLoop();
+    mainLoop(file);
 
     return 0;
 }
@@ -263,7 +358,6 @@ int countLines(FILE *fp) {
 
 
 int readData(FILE *fp) {
-
     // Riparti dall'inizio del file (siamo arrivati in fondo dopo aver chiamato la funzione countLines
     rewind(fp);
 
@@ -272,7 +366,6 @@ int readData(FILE *fp) {
 
     // ... Per ogni riga nel file
     while (fgets(buffer, 100, fp)) {
-
         // Usa strtok per dividere il contenuto della stringa
         char *token = strtok(buffer, ";");
         // ...Per tre volte, come le colonne, associa il valore della colonna al giusto slot nella struct

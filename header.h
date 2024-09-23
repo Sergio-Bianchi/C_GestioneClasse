@@ -18,7 +18,6 @@ typedef struct {
     char name[21];
     char surname[21];
     int height;
-
 } student;
 
 int readData(FILE *fp);
@@ -27,7 +26,7 @@ int countLines(FILE *fp);
 
 int strToInt(char *string);
 
-int mainLoop();
+int mainLoop(char *file);
 
 void printHelp();
 
@@ -40,6 +39,13 @@ void addName();
 void addSurname();
 
 void addHeight();
+
+
+void editStudent();
+
+void deleteStudent();
+
+void saveToFile(const char *file);
 
 void clrscr();
 
