@@ -5,7 +5,7 @@
 
 #include <header.h>
 
-
+int maxStudentsMemory = 0;
 int studentsAmount = 0;
 student *students = NULL;
 
@@ -72,40 +72,128 @@ void printStudents() {
 
 
 void addName() {
+    /* Pulisci il buffer di stdin*/
+    // TODO, controllare ogni recursive function per il buffer
+    fflush(stdin);
+
+    /* Dichiarazione funzioni*/
     char input[20];
     printf("Name (max 20 c):");
     fgets(input, 20, stdin);
 
     /* Se il nome è più corto di tre caratteri, richiama*/
     if (strlen(input) < 3) {
-        printf("Name length too short");
-        addName();
+        printf("Name too short\n");
+        addSurname();
+        return;
     }
-
     /* Se una delle lettere del nome non è un carattere alfa, richiama*/
     for (int i = 0; i < 20; ++i) {
-        if (!isalpha(input[i])) {
-            printf("Please use only alpha characters");
-            addName();
+        if (input[i] == '\n') {
+            input[i] = '\0';
+            break;
+        };
+        if (!(isalpha(input[i]) || input[i] == ' ')) {
+            printf("Please use only alpha characters\n");
+            addSurname();
+            return;
         }
     }
 
+    /* Inserisci il nome nell'ultimo slot dell'array */
     strcpy(students[studentsAmount].name, input);
+    printf("Name added: %s\n", students[studentsAmount].name);
+}
+
+void addSurname() {
+    /* Pulisci il buffer di stdin*/
+    // TODO, controllare ogni recursive function per il buffer
+    fflush(stdin);
+
+    /* Dichiarazione funzioni*/
+    char input[20];
+    printf("Surname (max 20 c):");
+    fgets(input, 20, stdin);
+
+    /* Se il nome è più corto di tre caratteri, richiama*/
+    if (strlen(input) < 3) {
+        printf("Surname too short\n");
+        addName();
+        return;
+    }
+    /* Se una delle lettere del nome non è un carattere alfa, richiama*/
+    for (int i = 0; i < 20; ++i) {
+        if (input[i] == '\n') {
+            input[i] = '\0';
+            break;
+        };
+        if (!(isalpha(input[i]) || input[i] == ' ')) {
+            printf("Please use only alpha characters\n");
+            addName();
+            return;
+        }
+    }
+
+    /* Inserisci il nome nell'ultimo slot dell'array */
+    strcpy(students[studentsAmount].surname, input);
+    printf("Surname added: %s\n", students[studentsAmount].surname);
+}
+
+void addHeight() {
+    /* Pulisci il buffer di stdin*/
+    // TODO, controllare ogni recursive function per il buffer
+    fflush(stdin);
+
+    /* Dichiarazione funzioni*/
+    char input[6];
+    int height = 0;
+
+    printf("Height (in cm):");
+    fgets(input, 5, stdin);
+
+    for (int i = 0; i < 5; ++i) {
+        if (input[i] == '\n') {
+            break;
+        };
+        if (input[i] < '0' || input[i] > '9') {
+            printf("Not a valid number\n");
+            addHeight();
+            return;
+        }
+    }
+
+    /* Converte l'altezza in numero (ho deciso di gestirmela con gli int alla fine*/
+    height = strtol(input, NULL, 10);
+
+
+#ifdef  EGG
+    /* Piccolo easter egg se l'altezza inserita è molto bassa o molto alta*/
+    if (height < 100) {
+        printf("Are they gnomes? %d cm are not a lot", height);
+        addHeight();
+        return;
+    } else if (height > 300) {
+        printf("Are they giants? %d cm are a lot", height);
+        addHeight();
+        return;
+    }
+#endif
+
+
+    students[studentsAmount].height = height;
+
+
+    /* Inserisci il nome nell'ultimo slot dell'array */
+    printf("Height added: %d\n", students[studentsAmount].height);
 }
 
 void addStudent() {
     /* Dichiarazione variabili input. Potrebbe essere ridotta a una*/
+    addName();
+    addSurname();
+    addHeight();
 
-    while (1) {
-
-    }
-
-    printf("Surname (max 20 c):");
-    fgets(surname, 20, stdin);
-    printf("Height (cm):");
-    fgets(height, 5, stdin);
-
-
+    studentsAmount++;
 }
 
 
@@ -121,7 +209,7 @@ int mainLoop() {
     else if (!strcmp(command, "p\n")) printStudents();
     else if (!strcmp(command, "e\n")) printf("Command EDIT called. These is a lot to do here\n");
     else if (!strcmp(command, "w\n")) printf("Command WRITE called. These is a lot to do here\n");
-    else if (!strcmp(command, "a\n")) printf("Command ADD called. These is a lot to do here\n");
+    else if (!strcmp(command, "a\n")) addStudent();
     else if (!strcmp(command, "d\n")) printf("Command DELETE called. These is a lot to do here\n");
     else {
         printf("Not a valid command\n");

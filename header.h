@@ -4,8 +4,14 @@
 
 #ifndef C_GESTIONECLASSE_HEADER_H
 #define C_GESTIONECLASSE_HEADER_H
+
 #include <stdio.h>
+
 #define OVERBUFFER 10
+
+// Abilita gli easter eggs
+#define EGG
+
 #define bckls() printf("\n")
 
 typedef struct {
@@ -15,18 +21,26 @@ typedef struct {
 
 } student;
 
-int readData(FILE * fp);
-int countLines(FILE * fp);
-int strToInt(char * string);
+int readData(FILE *fp);
+
+int countLines(FILE *fp);
+
+int strToInt(char *string);
+
 int mainLoop();
 
 void printHelp();
+
 void printStudents();
+
 void addStudent();
 
 void addName();
+
 void addSurname();
+
 void addHeight();
 
 void clrscr();
+
 #endif //C_GESTIONECLASSE_HEADER_H
