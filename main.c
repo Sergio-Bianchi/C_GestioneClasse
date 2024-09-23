@@ -30,11 +30,13 @@ int main(int argc, char *argv[]) {
         } else {
             printf("File created \n");
             students = malloc((studentsAmount + OVERBUFFER) * sizeof(student));
+            maxStudentsMemory = studentsAmount + OVERBUFFER;
         }
     } else {
         // Assegna uno spazio in memoria a students per tanti studenti quanti presenti nel file, + un buffer predefinito
         studentsAmount = countLines(fp);
         students = malloc((studentsAmount + OVERBUFFER) * sizeof(student));
+        maxStudentsMemory = studentsAmount - 1 + OVERBUFFER;
         readData(fp);
     }
 
@@ -188,6 +190,28 @@ void addHeight() {
 }
 
 void addStudent() {
+
+    /* Allarga la memoria di students per poter contenere altri studenti. Si potrebbe inserire in un'altra funzione */
+
+    /* Se il numero di studenti è superiore al numero massimo permesso dalla memoria assegnata*/
+
+    if (studentsAmount > maxStudentsMemory) {
+        /* Creo una variabile che conterrà in nuovo array*/
+        student *muppet;
+        /* Alloco alla variabile nuova lo spazio necessario per contenere il nuovo studente + il buffer predefinito (Se il buffer dovesse essere 0, funziona ugualmente)*/
+        muppet = malloc((studentsAmount + OVERBUFFER + 1) * sizeof(student));
+
+        /* Copio i dati nel nuovo puntatore */
+        for (int i = 0; i < studentsAmount; ++i) {
+            muppet[i] = students[i];
+        }
+
+        /* Libero il vecchio array dalla memoria e assegna a students l'indirizzo del nuovo spazio di memoria*/
+        free(students);
+        students = muppet;
+        /* Aumenta la variabile degli studenti massimi */
+        maxStudentsMemory += (OVERBUFFER + 1);
+    }
     /* Dichiarazione variabili input. Potrebbe essere ridotta a una*/
     addName();
     addSurname();
