@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 
-#define OVERBUFFER 1
+#define OVERBUFFER 10
 
 // Abilita gli easter eggs
 #define EGG
