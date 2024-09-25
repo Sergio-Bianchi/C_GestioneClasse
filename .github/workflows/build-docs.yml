@@ -18,6 +18,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+
 
       - name: Build docs using Writerside Docker builder
         uses: JetBrains/writerside-github-action@v4
