@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>starter.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #d5b778;}
+.s5 { color: #bababa;}
+.s6 { color: #6aab73;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+starter.md</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0"># </span><span class="s2">Starter</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s3">&lt;!--Writerside adds this topic when you create a new documentation project.</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s3">You can use it as a sandbox to play with Writerside features, and remove it from the TOC when you don't need it anymore.--&gt;</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">## </span><span class="s2">Add new topics</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s2">You can create empty topics, or choose a template for different types of content that contains some boilerplate structure to help you get started</span><span class="s1">:</span>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s1">![</span><span class="s2">Create new topic options</span><span class="s1">](</span><span class="s2">new_topic_options.png</span><span class="s1">)</span><span class="s2">{ width=290 }{border-effect=line}</span>
+<a name="l10"><span class="ln">10   </span></a>
+<a name="l11"><span class="ln">11   </span></a><span class="s0">## </span><span class="s2">Write content</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s2">%product% supports two types of markup</span><span class="s1">: </span><span class="s2">Markdown and XML.</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s2">When you create a new help article, you can choose between two topic types, but this doesn't mean you have to stick to a single format.</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s2">You can author content in Markdown and extend it with semantic attributes or inject entire XML elements.</span>
+<a name="l15"><span class="ln">15   </span></a>
+<a name="l16"><span class="ln">16   </span></a><span class="s0">## </span><span class="s2">Inject XML</span>
+<a name="l17"><span class="ln">17   </span></a><span class="s2">For example, this is how you inject a procedure</span><span class="s1">:</span>
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a><span class="s4">&lt;procedure </span><span class="s5">title</span><span class="s6">=&quot;Inject a procedure&quot; </span><span class="s5">id</span><span class="s6">=&quot;inject-a-procedure&quot;</span><span class="s4">&gt;</span>
+<a name="l20"><span class="ln">20   </span></a>    <span class="s4">&lt;step&gt;</span>
+<a name="l21"><span class="ln">21   </span></a>        <span class="s4">&lt;p&gt;</span><span class="s2">Start typing and select a procedure type from the completion suggestions:</span><span class="s4">&lt;/p&gt;</span>
+<a name="l22"><span class="ln">22   </span></a>        <span class="s4">&lt;img </span><span class="s5">src</span><span class="s6">=&quot;completion_procedure.png&quot; </span><span class="s5">alt</span><span class="s6">=&quot;completion suggestions for procedure&quot; </span><span class="s5">border-effect</span><span class="s6">=&quot;line&quot;</span><span class="s4">/&gt;</span>
+<a name="l23"><span class="ln">23   </span></a>    <span class="s4">&lt;/step&gt;</span>
+<a name="l24"><span class="ln">24   </span></a>    <span class="s4">&lt;step&gt;</span>
+<a name="l25"><span class="ln">25   </span></a>        <span class="s4">&lt;p&gt;</span><span class="s2">Press </span><span class="s4">&lt;shortcut&gt;</span><span class="s2">Tab</span><span class="s4">&lt;/shortcut&gt; </span><span class="s2">or </span><span class="s4">&lt;shortcut&gt;</span><span class="s2">Enter</span><span class="s4">&lt;/shortcut&gt; </span><span class="s2">to insert the markup.</span><span class="s4">&lt;/p&gt;</span>
+<a name="l26"><span class="ln">26   </span></a>    <span class="s4">&lt;/step&gt;</span>
+<a name="l27"><span class="ln">27   </span></a><span class="s4">&lt;/procedure&gt;</span>
+<a name="l28"><span class="ln">28   </span></a>
+<a name="l29"><span class="ln">29   </span></a><span class="s0">## </span><span class="s2">Add interactive elements</span>
+<a name="l30"><span class="ln">30   </span></a>
+<a name="l31"><span class="ln">31   </span></a><span class="s0">### </span><span class="s2">Tabs</span>
+<a name="l32"><span class="ln">32   </span></a><span class="s2">To add switchable content, you can make use of tabs </span><span class="s1">(</span><span class="s2">inject them by starting to type `tab` on a new line</span><span class="s1">):</span>
+<a name="l33"><span class="ln">33   </span></a>
+<a name="l34"><span class="ln">34   </span></a><span class="s4">&lt;tabs&gt;</span>
+<a name="l35"><span class="ln">35   </span></a>    <span class="s4">&lt;tab </span><span class="s5">title</span><span class="s6">=&quot;Markdown&quot;</span><span class="s4">&gt;</span>
+<a name="l36"><span class="ln">36   </span></a>        <span class="s4">&lt;code-block </span><span class="s5">lang</span><span class="s6">=&quot;plain text&quot;</span><span class="s4">&gt;</span><span class="s2">![Alt Text](new_topic_options.png){ width=450 }</span><span class="s4">&lt;/code-block&gt;</span>
+<a name="l37"><span class="ln">37   </span></a>    <span class="s4">&lt;/tab&gt;</span>
+<a name="l38"><span class="ln">38   </span></a>    <span class="s4">&lt;tab </span><span class="s5">title</span><span class="s6">=&quot;Semantic markup&quot;</span><span class="s4">&gt;</span>
+<a name="l39"><span class="ln">39   </span></a>        <span class="s4">&lt;code-block </span><span class="s5">lang</span><span class="s6">=&quot;xml&quot;</span><span class="s4">&gt;</span>
+<a name="l40"><span class="ln">40   </span></a>            <span class="s2">&lt;![CDATA[</span><span class="s4">&lt;img </span><span class="s5">src</span><span class="s6">=&quot;new_topic_options.png&quot; </span><span class="s5">alt</span><span class="s6">=&quot;Alt text&quot; </span><span class="s5">width</span><span class="s6">=&quot;450px&quot;</span><span class="s4">/&gt;</span><span class="s2">]]&gt;</span><span class="s4">&lt;/code-block&gt;</span>
+<a name="l41"><span class="ln">41   </span></a>    <span class="s4">&lt;/tab&gt;</span>
+<a name="l42"><span class="ln">42   </span></a><span class="s4">&lt;/tabs&gt;</span>
+<a name="l43"><span class="ln">43   </span></a>
+<a name="l44"><span class="ln">44   </span></a><span class="s0">### </span><span class="s2">Collapsible blocks</span>
+<a name="l45"><span class="ln">45   </span></a><span class="s2">Apart from injecting entire XML elements, you can use attributes to configure the behavior of certain elements.</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s2">For example, you can collapse a chapter that contains non-essential information</span><span class="s1">:</span>
+<a name="l47"><span class="ln">47   </span></a>
+<a name="l48"><span class="ln">48   </span></a><span class="s0">#### </span><span class="s2">Supplementary info {collapsible=</span><span class="s1">&quot;</span><span class="s2">true</span><span class="s1">&quot;</span><span class="s2">}</span>
+<a name="l49"><span class="ln">49   </span></a><span class="s2">Content under a collapsible header will be collapsed by default,</span>
+<a name="l50"><span class="ln">50   </span></a><span class="s2">but you can modify the behavior by adding the following attribute</span><span class="s1">:</span>
+<a name="l51"><span class="ln">51   </span></a><span class="s2">`default-state=</span><span class="s1">&quot;</span><span class="s2">expanded</span><span class="s1">&quot;</span><span class="s2">`</span>
+<a name="l52"><span class="ln">52   </span></a>
+<a name="l53"><span class="ln">53   </span></a><span class="s0">### </span><span class="s2">Convert selection to XML</span>
+<a name="l54"><span class="ln">54   </span></a><span class="s2">If you need to extend an element with more functions, you can convert selected content from Markdown to semantic markup.</span>
+<a name="l55"><span class="ln">55   </span></a><span class="s2">For example, if you want to merge cells in a table, it's much easier to convert it to XML than do this in Markdown.</span>
+<a name="l56"><span class="ln">56   </span></a><span class="s2">Position the caret anywhere in the table and press </span><span class="s1">&lt;shortcut&gt;</span><span class="s2">Alt+Enter</span><span class="s1">&lt;/shortcut&gt;:</span>
+<a name="l57"><span class="ln">57   </span></a>
+<a name="l58"><span class="ln">58   </span></a><span class="s4">&lt;img </span><span class="s5">src</span><span class="s6">=&quot;convert_table_to_xml.png&quot; </span><span class="s5">alt</span><span class="s6">=&quot;Convert table to XML&quot; </span><span class="s5">width</span><span class="s6">=&quot;706&quot; </span><span class="s5">border-effect</span><span class="s6">=&quot;line&quot;</span><span class="s4">/&gt;</span>
+<a name="l59"><span class="ln">59   </span></a>
+<a name="l60"><span class="ln">60   </span></a><span class="s0">## </span><span class="s2">Feedback and support</span>
+<a name="l61"><span class="ln">61   </span></a><span class="s2">Please report any issues, usability improvements, or feature requests to our</span>
+<a name="l62"><span class="ln">62   </span></a><span class="s4">&lt;a </span><span class="s5">href</span><span class="s6">=&quot;https://youtrack.jetbrains.com/newIssue?project=WRS&quot;</span><span class="s4">&gt;</span><span class="s2">YouTrack project</span><span class="s4">&lt;/a&gt;</span>
+<a name="l63"><span class="ln">63   </span></a><span class="s2">(you will need to register).</span>
+<a name="l64"><span class="ln">64   </span></a>
+<a name="l65"><span class="ln">65   </span></a><span class="s2">You are welcome to join our</span>
+<a name="l66"><span class="ln">66   </span></a><span class="s4">&lt;a </span><span class="s5">href</span><span class="s6">=&quot;https://jb.gg/WRS_Slack&quot;</span><span class="s4">&gt;</span><span class="s2">public Slack workspace</span><span class="s4">&lt;/a&gt;</span><span class="s2">.</span>
+<a name="l67"><span class="ln">67   </span></a><span class="s2">Before you do, please read our [Code of conduct](https://plugins.jetbrains.com/plugin/20158-writerside/docs/writerside-code-of-conduct.html).</span>
+<a name="l68"><span class="ln">68   </span></a><span class="s2">We assume that you’ve read and acknowledged it before joining.</span>
+<a name="l69"><span class="ln">69   </span></a>
+<a name="l70"><span class="ln">70   </span></a><span class="s2">You can also always email us at </span><span class="s1">[</span><span class="s2">writerside@jetbrains.com</span><span class="s1">](</span><span class="s2">mailto</span><span class="s1">:</span><span class="s2">writerside@jetbrains.com</span><span class="s1">)</span><span class="s2">.</span>
+<a name="l71"><span class="ln">71   </span></a>
+<a name="l72"><span class="ln">72   </span></a><span class="s4">&lt;seealso&gt;</span>
+<a name="l73"><span class="ln">73   </span></a>    <span class="s4">&lt;category </span><span class="s5">ref</span><span class="s6">=&quot;wrs&quot;</span><span class="s4">&gt;</span>
+<a name="l74"><span class="ln">74   </span></a>        <span class="s4">&lt;a </span><span class="s5">href</span><span class="s6">=&quot;https://plugins.jetbrains.com/plugin/20158-writerside/docs/markup-reference.html&quot;</span><span class="s4">&gt;</span><span class="s2">Markup reference</span><span class="s4">&lt;/a&gt;</span>
+<a name="l75"><span class="ln">75   </span></a>        <span class="s4">&lt;a </span><span class="s5">href</span><span class="s6">=&quot;https://plugins.jetbrains.com/plugin/20158-writerside/docs/manage-table-of-contents.html&quot;</span><span class="s4">&gt;</span><span class="s2">Reorder topics in the TOC</span><span class="s4">&lt;/a&gt;</span>
+<a name="l76"><span class="ln">76   </span></a>        <span class="s4">&lt;a </span><span class="s5">href</span><span class="s6">=&quot;https://plugins.jetbrains.com/plugin/20158-writerside/docs/local-build.html&quot;</span><span class="s4">&gt;</span><span class="s2">Build and publish</span><span class="s4">&lt;/a&gt;</span>
+<a name="l77"><span class="ln">77   </span></a>        <span class="s4">&lt;a </span><span class="s5">href</span><span class="s6">=&quot;https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html&quot;</span><span class="s4">&gt;</span><span class="s2">Configure Search</span><span class="s4">&lt;/a&gt;</span>
+<a name="l78"><span class="ln">78   </span></a>    <span class="s4">&lt;/category&gt;</span>
+<a name="l79"><span class="ln">79   </span></a><span class="s4">&lt;/seealso&gt;</span></pre>
+</body>
+</html>
