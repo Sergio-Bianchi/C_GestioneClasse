@@ -2,13 +2,12 @@ name: Build documentation
 
 on:
   push:
-    branches: ["documentation"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
   id-token: write
   pages: write
-  contents: write
 
 
 env:
