@@ -10,7 +10,7 @@ permissions:
   pages: write
 
 env:
-  INSTANCE: 'DOC_GestioneClasse/Writerside/in'
+  INSTANCE: 'Writerside/in'
   ARTIFACT: 'webHelpIN2-all.zip'
   DOCKER_VERSION: '242.21870'
 
