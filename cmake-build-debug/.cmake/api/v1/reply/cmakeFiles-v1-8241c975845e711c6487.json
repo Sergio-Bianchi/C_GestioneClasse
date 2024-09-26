@@ -21,11 +21,6 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "/home/jag/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.29/Modules/CMakeUnixFindMake.cmake"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
 			"path" : "/home/jag/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake"
 		},
 		{
@@ -430,8 +425,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/jag/CLionProjects/C_GestioneClasse/cmake-build-debug",
-		"source" : "/home/jag/CLionProjects/C_GestioneClasse"
+		"build" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug",
+		"source" : "/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse"
 	},
 	"version" : 
 	{

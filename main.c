@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+
 #include <header.h>
 
 int maxStudentsMemory = 0;
@@ -51,17 +52,17 @@ int main(int argc, char *argv[]) {
 
 void printHelp() {
     printf("\nHelp: \n\n"
-        "    p       Print current class\n"
-        "    w       Save class to file\n"
-        "    m       Print this menu\n"
-        "    cl      Clear the screen\n"
-        "    e [id]  Edit student\n"
-        "    a       Add a student\n"
-        "    d [id]  Delete a student\n"
-        "    q       Exit\n");
+           "    p       Print current class\n"
+           "    w       Save class to file\n"
+           "    m       Print this menu\n"
+           "    cl      Clear the screen\n"
+           "    e [id]  Edit student\n"
+           "    a       Add a student\n"
+           "    d [id]  Delete a student\n"
+           "    q       Exit\n");
 }
 
-/* Stampa la tabella caricata in RAM*/
+/* 3mpa la tabella caricata in RAM*/
 void printStudents() {
     /* Stampa i nomi delle colonne allineati*/
     printf("%-3s %20s %20s %8s\n\n", "ID", "NAME", "SURNAME", "HEIGHT");
@@ -173,11 +174,11 @@ void addHeight() {
 #ifdef  EGG
     /* Piccolo easter egg se l'altezza inserita è molto bassa o molto alta*/
     if (height < 100) {
-        printf("Are they gnomes? %d cm are not a lot", height);
+        printf("Are they gnomes? %d cm are not a lot\n", height);
         addHeight();
         return;
     } else if (height > 300) {
-        printf("Are they giants? %d cm are a lot", height);
+        printf("Are they giants? %d cm are a lot\n", height);
         addHeight();
         return;
     }
@@ -255,11 +256,11 @@ void editStudent() {
 #ifdef  EGG
     /* Piccolo easter egg se l'altezza inserita è molto bassa o molto alta*/
     if (height < 100) {
-        printf("Are they gnomes? %d cm are not a lot", height);
+        printf("Are they gnomes? %d cm are not a lot\n", height);
         addHeight();
         return;
     } else if (height > 300) {
-        printf("Are they giants? %d cm are a lot", height);
+        printf("Are they giants? %d cm are a lot\n", height);
         addHeight();
         return;
     }
@@ -330,6 +331,7 @@ int mainLoop(char *file) {
     else if (!strcmp(command, "w\n")) saveToFile(file);
     else if (!strcmp(command, "a\n")) addStudent();
     else if (!strcmp(command, "d\n")) deleteStudent();
+    else if (!strcmp(command, "sNd\n")) nameSort(0);
     else {
         printf("Not a valid command\n");
     }
@@ -390,4 +392,76 @@ int readData(FILE *fp) {
 
 
     return 0;
+}
+
+
+void nameSort(int dir) {
+    char names[studentsAmount][20];
+
+    student *sortingCache = malloc((maxStudentsMemory) * sizeof(student));
+
+    printf("Coping\n");
+    for (int i = 0; i < studentsAmount; ++i) {
+        strcpy(names[i], students[i].name);
+        stoup(names[i]);
+        printf("%s\n", names[i]);
+    }
+
+    printf("Sorting\n");
+    qsort(names, studentsAmount, sizeof(char) * 20, cmpstringp);
+
+    for (int i = 0; i < studentsAmount; ++i) {
+        printf("%s  - %d / %d\n", names[i], i + 1, studentsAmount);
+
+    }
+    bckls();
+    for (int i = 0; i < studentsAmount; ++i) {
+        for (int j = 0; j < studentsAmount; ++j) {
+            if (strcmp(students[i].name, names[j]) == 0) {
+                sortingCache[j] = students[i];
+            }
+
+        }
+    }
+    for (int i = 0; i < studentsAmount; ++i) {
+        printf("%s\n", sortingCache[i].name);
+
+    }
+
+
+}
+
+void surnameSort(int dir) {
+    char *surnames[studentsAmount];
+    for (int i = 0; i < studentsAmount; ++i) {
+        surnames[i] = students[i].name;
+    }
+}
+
+void heightSort(int dir) {
+    int heights[studentsAmount];
+    for (int i = 0; i < studentsAmount; ++i) {
+        heights[i] = students[i].height;
+    }
+
+}
+
+
+void stoup(char *temp) {
+    char *name;
+    name = strtok(temp, ":");
+
+    // Convert to upper case
+    char *s = name;
+    while (*s) {
+        *s = toupper((unsigned char) *s);
+        s++;
+    }
+
+}
+
+int cmpstringp(const void *a, const void *b) {
+    const char *aa = a;
+    const char *bb = b;
+    return strcmp(aa, bb);
 }

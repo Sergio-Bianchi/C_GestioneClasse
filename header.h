@@ -47,6 +47,19 @@ void deleteStudent();
 
 void saveToFile(const char *file);
 
+
+void nameSort(int dir);
+
+void surnameSort(int dir);
+
+void heightSort(int dir);
+
+static int cmpstringp(const void *p1, const void *p2);
+
+void sort(const char *arr[], int n);
+
+void stoup(char *temp);
+
 void clrscr();
 
 #endif //C_GESTIONECLASSE_HEADER_H
