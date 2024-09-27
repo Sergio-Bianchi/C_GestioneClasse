@@ -56,6 +56,8 @@ void heightSort(int dir);
 
 static int cmpstringp(const void *p1, const void *p2);
 
+int cmpnamesdescending(const void *a, const void *b);
+
 void sort(const char *arr[], int n);
 
 void stoup(char *temp);

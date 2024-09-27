@@ -396,7 +396,7 @@ int readData(FILE *fp) {
 
 
 void nameSort(int dir) {
-    char names[studentsAmount][20];
+    /*char names[studentsAmount][20];
 
     student *sortingCache = malloc((maxStudentsMemory) * sizeof(student));
 
@@ -415,19 +415,35 @@ void nameSort(int dir) {
 
     }
     bckls();
+
     for (int i = 0; i < studentsAmount; ++i) {
         for (int j = 0; j < studentsAmount; ++j) {
-            if (strcmp(students[i].name, names[j]) == 0) {
-                sortingCache[j] = students[i];
+            if (strcasecmp(students[i].name, names[j]) == 0) {
+
+                printf("deleting: %s \n", names[j]);
+
+                strcpy(names[j], "----------------");
+
+                strcpy(sortingCache[j].name, students[i].name);
+                strcpy(sortingCache[j].surname, students[i].surname);
+                sortingCache[j].height = students[i].height;
+
+                printf("deleted: %s \n", names[j]);
             }
 
         }
     }
     for (int i = 0; i < studentsAmount; ++i) {
-        printf("%s\n", sortingCache[i].name);
+        printf("%s ; %s ; %d\n", sortingCache[i].name, sortingCache[i].surname, sortingCache[i].height);
 
     }
+*/
 
+    qsort(students, studentsAmount, (sizeof(student) * studentsAmount), cmpnamesdescending);
+
+    for (int i = 0; i < studentsAmount; ++i) {
+        printf("%s \n", students[i].name);
+    }
 
 }
 
@@ -464,4 +480,11 @@ int cmpstringp(const void *a, const void *b) {
     const char *aa = a;
     const char *bb = b;
     return strcmp(aa, bb);
+}
+
+int cmpnamesdescending(const void *a, const void *b) {
+    student *aa = (student *) a;
+    student *bb = (student *) b;
+    return strcasecmp(aa->name, bb->name);
+
 }
