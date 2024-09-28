@@ -6,8 +6,23 @@
     <variables></variables>
     <build-profile instance="in">
         <variables>
+            <color-preset>contrast</color-preset>
+            <custom-favicons>https://avatars.githubusercontent.com/u/120821176?v=4</custom-favicons>
+            <header-logo>https://avatars.githubusercontent.com/u/120821176?v=4</header-logo>
+            <product-web-url>https://github.com/Sergio-Bianchi</product-web-url>
+
+            <download-title>Source Code</download-title>
+            <download-page>https://github.com/Sergio-Bianchi/C_GestioneClasse</download-page>
+            <showDownloadButton>true</showDownloadButton>
+
             <noindex-content>true</noindex-content>
         </variables>
+
+        <footer>
+            <copyright>2024 Sunflowers org.</copyright>
+            <link href="https://github.com/Sergio-Bianchi">Github</link>
+        </footer>
+
     </build-profile>
 
 </buildprofiles>
