@@ -6,4 +6,5 @@
                   name="C_GestioneClasse"
                   start-page="starter.md">
     <toc-element topic="starter.md"/>
+    <toc-element topic="Funzioni.topic"/>
 </instance-profile>

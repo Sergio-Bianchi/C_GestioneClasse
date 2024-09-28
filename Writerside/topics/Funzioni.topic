@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Funzioni" id="Funzioni">
+
+    <chapter title="int main()" id="main">
+        <p>La funzione main si occupa di aprire/creare il file ed avere le prime interazioni con l'utente</p>
+        <code-block lang="c" src="main.c" include-lines="13-43"/>
+    </chapter>
+
+    <chapter title="void printHelp()" id="printhelp">
+        <p> Stampa a schermo i comandi del programma</p>
+        <code-block lang="c" src="main.c" include-lines="45-55"/>
+    </chapter>
+
+    <chapter title="void addName()" id="addname">
+        <p> Aggiunge il nome nell'ultimo slot di students</p>
+        <code-block lang="c" src="main.c" include-lines="71-103"/>
+    </chapter>
+
+    <chapter title="void addSurname()" id="addsurname">
+        <p> Aggiunge il cognome nell'ultimo slot di students</p>
+        <code-block lang="c" src="main.c" include-lines="105-137"/>
+    </chapter>
+
+    <chapter title="void addSurname()" id="addheight">
+        <p> Aggiunge l'altezza nell'ultimo slot di students</p>
+        <code-block lang="c" src="main.c" include-lines="139-185"/>
+    </chapter>
+
+    <chapter title="void addSurname()" id="addstudent">
+        <p> Gestisce la dimensione dell'array per poter aggiungere uno studente </p>
+        <code-block lang="c" src="main.c" include-lines="187-214"/>
+    </chapter>
+
+    <chapter title="void editStudent()" id="editstudent">
+        <p> Modifica l'altezza di uno studente </p>
+        <code-block lang="c" src="main.c" include-lines="217-264"/>
+    </chapter>
+
+    <chapter title="void deleteStudent()" id="deletestudent">
+        <p> Elimina uno studente </p>
+        <code-block lang="c" src="main.c" include-lines="267-298"/>
+    </chapter>
+
+    <chapter title="void saveToFile()" id="savetofile">
+        <p> Salva i cambiamenti sul file </p>
+        <code-block lang="c" src="main.c" include-lines="300-309"/>
+    </chapter>
+
+    <chapter title="int mainLoop()" id="mainloop">
+        <p> Loop principale dell'applicazione </p>
+        <code-block lang="c" src="main.c" include-lines="313-333"/>
+    </chapter>
+
+    <chapter title="void clrscr()" id="clrscr">
+        <p> Pulisce lo schermo </p>
+        <code-block lang="c" src="main.c" include-lines="335-337"/>
+    </chapter>
+
+    <chapter title="int countLines()" id="countlines">
+        <p> Conta le linee all'interno del file </p>
+        <code-block lang="c" src="main.c" include-lines="340-350"/>
+    </chapter>
+
+    <chapter title="int readData()" id="readdata">
+        <p> Legge i valori all'interno del file e li salva nell'array students </p>
+        <code-block lang="c" src="main.c" include-lines="353-386"/>
+    </chapter>
+
+
+
+
+
+</topic>
