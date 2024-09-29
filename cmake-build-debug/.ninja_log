@@ -1,5 +1,16 @@
 # ninja log v6
-829	1015	1727605373965747694	C_GestioneClasse	80fc629d6cabac52
-8	828	1727605373142492497	CMakeFiles/C_GestioneClasse.dir/main.c.o	6b7c381c1799b684
+44	69	1727613114477747627	CMakeFiles/C_GestioneClasse.dir/src/global.c.o	99b2dcc26bd5e17a
+1	76	1727613163997737967	CMakeFiles/C_GestioneClasse.dir/src/main.c.o	da1dffca425068a3
+3	44	1727613174567751900	CMakeFiles/C_GestioneClasse.dir/src/sorting/compare.c.o	1f6d3765022dfb20
 6	779	1727605604118168750	CMakeFiles/C_GestioneClasse.dir/main.c.o	6b7c381c1799b684
-780	1003	1727605604892163566	C_GestioneClasse	80fc629d6cabac52
+0	20	1727613825077562471	build.ninja	6ce66dc775b0fd8b
+1	44	1727613174564418562	CMakeFiles/C_GestioneClasse.dir/src/sorting/sorting.c.o	1d86ccf0219e1ce5
+44	61	1727613174607751962	C_GestioneClasse	db28f4c3593e99db
+3	61	1727613890754540250	CMakeFiles/C_GestioneClasse.dir/src/sorting/compare.c.o	1f6d3765022dfb20
+0	64	1727613890751206901	CMakeFiles/C_GestioneClasse.dir/src/main.c.o	da1dffca425068a3
+1	73	1727613890751206901	CMakeFiles/C_GestioneClasse.dir/src/sorting/sorting.c.o	1d86ccf0219e1ce5
+63	99	1727613890814540546	CMakeFiles/C_GestioneClasse.dir/src/utils/utils.c.o	fa8f697513576dc0
+64	115	1727613890814540546	CMakeFiles/C_GestioneClasse.dir/src/manage-file/manage-file.c.o	68e6e0e7aca657b6
+99	146	1727613890847874044	CMakeFiles/C_GestioneClasse.dir/src/manage-interaction/manage-interaction.c.o	64af8a9932fa2f58
+73	150	1727613890824540596	CMakeFiles/C_GestioneClasse.dir/src/manage-students/manage-students.c.o	51467f07dcac97b9
+150	182	1727613890901207641	C_GestioneClasse	b16a6bb733f001de
