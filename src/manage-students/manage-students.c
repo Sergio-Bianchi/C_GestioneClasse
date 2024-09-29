@@ -25,7 +25,7 @@ void addName() {
         if (input[i] == '\n') {
             input[i] = '\0';
             break;
-        };
+        }
         if (!(isalpha(input[i]) || input[i] == ' ')) {
             printf("Please use only alpha characters\n");
             addSurname();
@@ -59,7 +59,7 @@ void addSurname() {
         if (input[i] == '\n') {
             input[i] = '\0';
             break;
-        };
+        }
         if (!(isalpha(input[i]) || input[i] == ' ')) {
             printf("Please use only alpha characters\n");
             addName();

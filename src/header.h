@@ -37,7 +37,7 @@ extern int studentsAmount;
 extern student *students;
 
 
-int mainLoop(char *file);
+void mainLoop(char *file);
 
 
 #endif //C_GESTIONECLASSE_HEADER_H

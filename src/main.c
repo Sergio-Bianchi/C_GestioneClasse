@@ -38,14 +38,16 @@ int main(int argc, char *argv[]) {
     mainLoop(argv[1]);
 }
 
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
 /* Ciclo principale dell'applicazione */
-int mainLoop(char *file) {
+void mainLoop(char *file) {
     printf("C_GestioneClasse (m for help): ");
     char command[20];
     fflush(stdin);
     fgets(command, 20, stdin);
     if (!strcmp(command, "m\n")) printHelp();
-    else if (!strcmp(command, "q\n")) return 0;
+    else if (!strcmp(command, "q\n")) return;
     else if (!strcmp(command, "cl\n")) clrscr();
     else if (!strcmp(command, "p\n")) printStudents();
     else if (!strcmp(command, "e\n")) editStudent();
@@ -63,6 +65,5 @@ int mainLoop(char *file) {
     }
 
     mainLoop(file);
-
-    return 0;
 }
+#pragma clang diagnostic pop
