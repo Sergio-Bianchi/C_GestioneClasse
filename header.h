@@ -54,9 +54,19 @@ void surnameSort(int dir);
 
 void heightSort(int dir);
 
-static int cmpstringp(const void *p1, const void *p2);
+/* * Comparisons */
+int cmpNameDescending(const void *a, const void *b);
 
-int cmpnamesdescending(const void *a, const void *b);
+int cmpSurnameDescending(const void *a, const void *b);
+
+int cmpHeightDescending(const void *a, const void *b);
+
+int cmpNameAscending(const void *a, const void *b);
+
+int cmpSurnameAscending(const void *a, const void *b);
+
+int cmpHeightAscending(const void *a, const void *b);
+
 
 void sort(const char *arr[], int n);
 

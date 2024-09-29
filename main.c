@@ -54,11 +54,12 @@ void printHelp() {
     printf("\nHelp: \n\n"
            "    p       Print current class\n"
            "    w       Save class to file\n"
+           "    sXx     Sort students [X: N(ame), S(urname), H(eight) | x: d(escending), a(scending)]\n"
            "    m       Print this menu\n"
            "    cl      Clear the screen\n"
-           "    e [id]  Edit student\n"
+           "    e       Edit student\n"
            "    a       Add a student\n"
-           "    d [id]  Delete a student\n"
+           "    d       Delete a student\n"
            "    q       Exit\n");
 }
 
@@ -283,6 +284,18 @@ void deleteStudent() {
         fflush(stdin);
         fgets(input, 4, stdin);
         id = strtol(input, NULL, 10);
+
+        /* Se lo studente selezionato è eliminato, prova a prendere il successivo. Se arriva alla fine, fallisce. Comodo soprattutto
+         * se si voglioni eliminare i primi studenti e non si vuole sempre inserire l'ID
+         * */
+        while (students[id].name[0] == '*') {
+            id++;
+            if (id > studentsAmount) {
+                printf("Please enter a valid student ID\n");
+                editStudent();
+                return;
+            }
+        }
         if (id < studentsAmount) {
             printf("%02d) %20s %20s %8d\n", id, students[id].name, students[id].surname, students[id].height);
             printf("Is it right [Y/n]? ");
@@ -317,7 +330,6 @@ void saveToFile(const char *file) {
 }
 
 /* Ciclo principale dell'applicazione */
-
 int mainLoop(char *file) {
     printf("C_GestioneClasse (m for help): ");
     char command[20];
@@ -332,6 +344,11 @@ int mainLoop(char *file) {
     else if (!strcmp(command, "a\n")) addStudent();
     else if (!strcmp(command, "d\n")) deleteStudent();
     else if (!strcmp(command, "sNd\n")) nameSort(0);
+    else if (!strcmp(command, "sNa\n")) nameSort(1);
+    else if (!strcmp(command, "sSd\n")) surnameSort(0);
+    else if (!strcmp(command, "sSa\n")) surnameSort(1);
+    else if (!strcmp(command, "sHd\n")) heightSort(0);
+    else if (!strcmp(command, "sHa\n")) heightSort(1);
     else {
         printf("Not a valid command\n");
     }
@@ -396,72 +413,28 @@ int readData(FILE *fp) {
 
 
 void nameSort(int dir) {
-    /*char names[studentsAmount][20];
-
-    student *sortingCache = malloc((maxStudentsMemory) * sizeof(student));
-
-    printf("Coping\n");
-    for (int i = 0; i < studentsAmount; ++i) {
-        strcpy(names[i], students[i].name);
-        stoup(names[i]);
-        printf("%s\n", names[i]);
+    if (dir) {
+        qsort(students, studentsAmount, sizeof(student), cmpNameAscending);
+    } else {
+        qsort(students, studentsAmount, sizeof(student), cmpNameDescending);
     }
-
-    printf("Sorting\n");
-    qsort(names, studentsAmount, sizeof(char) * 20, cmpstringp);
-
-    for (int i = 0; i < studentsAmount; ++i) {
-        printf("%s  - %d / %d\n", names[i], i + 1, studentsAmount);
-
-    }
-    bckls();
-
-    for (int i = 0; i < studentsAmount; ++i) {
-        for (int j = 0; j < studentsAmount; ++j) {
-            if (strcasecmp(students[i].name, names[j]) == 0) {
-
-                printf("deleting: %s \n", names[j]);
-
-                strcpy(names[j], "----------------");
-
-                strcpy(sortingCache[j].name, students[i].name);
-                strcpy(sortingCache[j].surname, students[i].surname);
-                sortingCache[j].height = students[i].height;
-
-                printf("deleted: %s \n", names[j]);
-            }
-
-        }
-    }
-    for (int i = 0; i < studentsAmount; ++i) {
-        printf("%s ; %s ; %d\n", sortingCache[i].name, sortingCache[i].surname, sortingCache[i].height);
-
-    }
-*/
-
-    qsort(students, studentsAmount, (sizeof(student) * studentsAmount), cmpnamesdescending);
-
-    for (int i = 0; i < studentsAmount; ++i) {
-        printf("%s \n", students[i].name);
-    }
-
 }
 
 void surnameSort(int dir) {
-    char *surnames[studentsAmount];
-    for (int i = 0; i < studentsAmount; ++i) {
-        surnames[i] = students[i].name;
+    if (dir) {
+        qsort(students, studentsAmount, sizeof(student), cmpSurnameAscending);
+    } else {
+        qsort(students, studentsAmount, sizeof(student), cmpSurnameDescending);
     }
 }
 
 void heightSort(int dir) {
-    int heights[studentsAmount];
-    for (int i = 0; i < studentsAmount; ++i) {
-        heights[i] = students[i].height;
+    if (dir) {
+        qsort(students, studentsAmount, sizeof(student), cmpHeightAscending);
+    } else {
+        qsort(students, studentsAmount, sizeof(student), cmpHeightDescending);
     }
-
 }
-
 
 void stoup(char *temp) {
     char *name;
@@ -476,15 +449,46 @@ void stoup(char *temp) {
 
 }
 
-int cmpstringp(const void *a, const void *b) {
-    const char *aa = a;
-    const char *bb = b;
-    return strcmp(aa, bb);
-}
-
-int cmpnamesdescending(const void *a, const void *b) {
+int cmpNameDescending(const void *a, const void *b) {
     student *aa = (student *) a;
     student *bb = (student *) b;
     return strcasecmp(aa->name, bb->name);
 
+}
+
+int cmpSurnameDescending(const void *a, const void *b) {
+    student *aa = (student *) a;
+    student *bb = (student *) b;
+    return strcasecmp(aa->surname, bb->surname);
+
+}
+
+
+int cmpNameAscending(const void *a, const void *b) {
+    student *aa = (student *) a;
+    student *bb = (student *) b;
+    return strcasecmp(bb->name, aa->name);
+
+}
+
+int cmpSurnameAscending(const void *a, const void *b) {
+    student *aa = (student *) a;
+    student *bb = (student *) b;
+    return strcasecmp(bb->surname, aa->surname);
+
+}
+
+
+int cmpHeightDescending(const void *a, const void *b) {
+    student *aa = (student *) a;
+    student *bb = (student *) b;
+    return (bb->height - aa->height);
+
+}
+
+
+int cmpHeightAscending(const void *a, const void *b) {
+    student *aa = (student *) a;
+    student *bb = (student *) b;
+    return (aa->height - bb->height);
 }
