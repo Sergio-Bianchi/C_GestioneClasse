@@ -205,11 +205,31 @@ void deleteStudent() {
 
     char input[4];
     int id = 0;
-    printf("Choose a student to delete (Note, IDs could change in new execution. Check them with command print)\n");
+    printf("Choose a student to delete (a for abort. Note, IDs could change in new execution. Check them with command print)\n");
     while (1) {
         printf("ID: ");
         fflush(stdin);
         fgets(input, 4, stdin);
+
+        // TODO -> IMPORTANTE
+        /*
+         * Sistemare gli input OVUNQUE in modo tale che non vadano in overflow
+         * Suddividere questa funzione in funzioni più piccole (ora come ora è ingestibile)
+         * Controllare OVUNQUE
+         * */
+
+/*        if (!strchr(input, '\n'))  //newline does not exist
+        {
+            while (fgetc(stdin) != '\n');//discard until newline
+        }*/
+        if (!strcmp(input, "a\n")) return; // Se l'utente si è sbagliato, può tornare indietro
+        for (int i = 0; i < 3; ++i) {
+            if (!(input[i] > '0' && input[i] < '9') || input[i] != '\n') {
+                printf("PPPlease enter a valid student ID\n");
+                deleteStudent();
+                return;
+            }
+        }
         id = strtol(input, NULL, 10);
 
         /* Se lo studente selezionato è eliminato, prova a prendere il successivo. Se arriva alla fine, fallisce. Comodo soprattutto
@@ -219,7 +239,7 @@ void deleteStudent() {
             id++;
             if (id > studentsAmount) {
                 printf("Please enter a valid student ID\n");
-                editStudent();
+                deleteStudent();
                 return;
             }
         }
@@ -229,16 +249,17 @@ void deleteStudent() {
             fflush(stdin);
             fgets(input, 4, stdin);
             if (input[0] == 'n' || input[0] == 'N') {
-                editStudent();
+                deleteStudent();
                 return;
             }
             if (input[0] == 'y' || input[0] == 'Y' || input[0] == '\n') break;
         } else {
             printf("Please enter a valid student ID\n");
-            editStudent();
+            deleteStudent();
             return;
         }
     }
+
     students[id].name[0] = '*';
     printf("Student deleted\n");
 
