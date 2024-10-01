@@ -204,7 +204,7 @@ void deleteStudent() {
     // TODO, sistemare, commentare, rendere a prova di scemo. Per ora, funziona abbastanza
 
     char input[4];
-    int id = 0;
+    int id;
     printf("Choose a student to delete (a for abort. Note, IDs could change in new execution. Check them with command print)\n");
     while (1) {
         printf("ID: ");
@@ -217,15 +217,11 @@ void deleteStudent() {
          * Suddividere questa funzione in funzioni più piccole (ora come ora è ingestibile)
          * Controllare OVUNQUE
          * */
-
-/*        if (!strchr(input, '\n'))  //newline does not exist
-        {
-            while (fgetc(stdin) != '\n');//discard until newline
-        }*/
         if (!strcmp(input, "a\n")) return; // Se l'utente si è sbagliato, può tornare indietro
         for (int i = 0; i < 3; ++i) {
-            if (!(input[i] > '0' && input[i] < '9') || input[i] != '\n') {
-                printf("PPPlease enter a valid student ID\n");
+            if(input[i] == '\n') break;
+            if (input[i] < '0' || input[i] > '9') {
+                printf("Please enter a valid student ID\n");
                 deleteStudent();
                 return;
             }

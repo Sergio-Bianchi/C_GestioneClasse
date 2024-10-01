@@ -1,3 +1,3 @@
-/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/C_GestioneClasse.dir
-/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/HDD/Documents/INFORMATICA/C_GestioneClasse/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/i4ai2/CLionProjects/C_GestioneClasse/cmake-build-debug/CMakeFiles/C_GestioneClasse.dir
+C:/Users/i4ai2/CLionProjects/C_GestioneClasse/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/i4ai2/CLionProjects/C_GestioneClasse/cmake-build-debug/CMakeFiles/rebuild_cache.dir
